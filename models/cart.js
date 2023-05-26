@@ -29,7 +29,7 @@ module.exports = class Cart{
             cart.products= [...cart.products,updatedProduct];
         }
 
-        cart.totalPrice=cart.totalPrice+productprice;
+        cart.totalPrice=parseInt(cart.totalPrice)+parseInt(productprice);
         fs.writeFile(p,JSON.stringify(cart),err=>{
             // console.log(err);
         })
@@ -52,7 +52,7 @@ module.exports = class Cart{
             prod=> prod.id!==id
         );
 
-        updatedcart.totalPrice=updatedcart.totalPrice-productprice*productQty;
+        updatedcart.totalPrice=parseInt(updatedcart.totalPrice)-parseInt(productprice*productQty);
         fs.writeFile(p,JSON.stringify(updatedcart),err=>{
             console.log(err);
         })
